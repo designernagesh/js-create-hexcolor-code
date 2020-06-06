@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Hex Color Code</title>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />  
+</head>
+<body style="padding: 20px">
+<div class="container text-center d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
+<h1 class="display-3 text-center mb-4">Create Hex Color & <br>Change the Background Color</h1>
+<h2 class="display-5 text-center mb-4">Hex Code is : <span id="hexCode"></span></h2>
+<button class="btn btn-danger mt-4 mb-2">Change the Background Color</button>
+</div>
+<script>
+      
+    
+    var body=document.querySelector("body");
+    var button=document.querySelector("button");
+    var hexCode=document.getElementById("hexCode");
+    
+    button.addEventListener('click', changeBgColor)
+
+    var hexCharacters = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F' ]  
+    
+    
+
+    function changeBgColor(){
+        var hexColor = '#' ;
+        for( let i =0; i<6; i++){
+            colorCharacter = Math.floor(Math.random() * hexCharacters.length)
+            hexColor += hexCharacters[colorCharacter]
+        }
+        hexCode.innerHTML = hexColor
+        body.style.backgroundColor = hexColor        
+    }
+</script>
+</body>
+</html>
